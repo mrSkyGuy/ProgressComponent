@@ -33,7 +33,7 @@ input[type=number] {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  gap: 128px;
   align-items: center;
   justify-content: center;
 }
@@ -100,6 +100,11 @@ input[type=number] {
 }
 .main .main__controllers .controllers__controller .controller__text {
   font-size: 1.5em;
+}
+@media screen and (orientation: landscape) {
+  .main {
+    flex-direction: row;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
