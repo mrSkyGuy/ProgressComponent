@@ -31,6 +31,13 @@ const getProgressComponent = (wrapperClassName, defaultValues) => {
     function setPercentage(percentage) {
         const safePtg = Math.max(Math.min(percentage, 100), 0);
         circleProgress.style.strokeDasharray = `${(perimeter * safePtg) / 100} ${(perimeter * (100 - safePtg)) / 100}`;
+        if ((safePtg === 0 || safePtg === 100) &&
+            progressComponent.classList.contains("animated")) {
+            progressComponent.style.animationPlayState = "paused";
+        }
+        else {
+            progressComponent.style.animationPlayState = "";
+        }
     }
     function setAnimate(value) {
         if (value)
