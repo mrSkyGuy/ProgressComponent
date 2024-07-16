@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style/normalize.css">
+  <link rel="stylesheet" href="./style/progressComponent/progressComponent.css">
+  <link rel="stylesheet" href="./style/index.css">
+
+  <script defer>let exports = {};</script>
+  <script type="module" src="./script/index.js" defer></script>
+</head>
+<body>
+  <h3 class="title">Progress</h3>
+
+  <main class="main">
+    <div class="main__controllers">
+      <div class="controllers__controller">
+        <input type="number" class="controller__text-input" value="15">
+        <div class="controller__text">Value</div>
+      </div>
+
+      <div class="controllers__controller">
+        <label class="controller__switch">
+          <input class="switch__input switch__input_animate" type="checkbox" checked>
+          <span class="switch__slider"></span>
+        </label>
+        <div class="controller__text">Animate</div>
+      </div>
+
+      <div class="controllers__controller">
+        <label class="controller__switch">
+          <input class="switch__input switch__input_hide" type="checkbox">
+          <span class="switch__slider"></span>
+        </label>
+        <div class="controller__text">Hide</div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
