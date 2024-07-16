@@ -1,4 +1,4 @@
-const getProgressComponent = wrapperClassName => {
+const getProgressComponent = (wrapperClassName, defaultValues) => {
     const viewSize = 100;
     const borderWidth = viewSize / 10;
     const radius = viewSize / 2 - borderWidth / 2;
@@ -44,6 +44,12 @@ const getProgressComponent = wrapperClassName => {
         else
             progressComponent.classList.remove("hidden");
     }
+    if (defaultValues === null || defaultValues === void 0 ? void 0 : defaultValues.percentage)
+        setPercentage(defaultValues.percentage);
+    if (defaultValues === null || defaultValues === void 0 ? void 0 : defaultValues.isAnimated)
+        setAnimate(defaultValues.isAnimated);
+    if (defaultValues === null || defaultValues === void 0 ? void 0 : defaultValues.isHidden)
+        setHide(defaultValues.isHidden);
     return { progressComponent, setPercentage, setAnimate, setHide };
 };
 export default getProgressComponent;

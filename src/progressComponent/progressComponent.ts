@@ -1,11 +1,23 @@
-type TProgressComponent = (wrapperClassName?: string) => {
+type TDefaultValues = {
+  percentage: number;
+  isAnimated: boolean;
+  isHidden: boolean;
+};
+
+type TProgressComponent = (
+  wrapperClassName?: string,
+  defaultValues?: Partial<TDefaultValues>
+) => {
   progressComponent: HTMLSpanElement;
   setPercentage: (percentage: number) => void;
   setAnimate: (value: boolean) => void;
   setHide: (value: boolean) => void;
 };
 
-const getProgressComponent: TProgressComponent = wrapperClassName => {
+const getProgressComponent: TProgressComponent = (
+  wrapperClassName,
+  defaultValues
+) => {
   const viewSize = 100;
   const borderWidth = viewSize / 10;
   const radius = viewSize / 2 - borderWidth / 2;
@@ -57,6 +69,10 @@ const getProgressComponent: TProgressComponent = wrapperClassName => {
     if (value) progressComponent.classList.add("hidden");
     else progressComponent.classList.remove("hidden");
   }
+
+  if (defaultValues?.percentage) setPercentage(defaultValues.percentage);
+  if (defaultValues?.isAnimated) setAnimate(defaultValues.isAnimated);
+  if (defaultValues?.isHidden) setHide(defaultValues.isHidden);
 
   return {progressComponent, setPercentage, setAnimate, setHide};
 };
