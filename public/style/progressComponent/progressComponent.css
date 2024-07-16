@@ -1,0 +1,18 @@
+.spinner {
+  font-size: 120px;
+  width: 2em;
+  height: 2em;
+  display: inline-block;
+}
+.spinner circle {
+  fill-opacity: 0;
+}
+.spinner circle[data-idea=background] {
+  stroke: #EAF0F6;
+}
+.spinner circle[data-idea=progress] {
+  transition: stroke-dasharray 300ms ease;
+  stroke: #005CFF;
+}
+
+/*# sourceMappingURL=progressComponent.css.map */
