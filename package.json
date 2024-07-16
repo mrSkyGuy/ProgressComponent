@@ -1,25 +1,20 @@
 {
   "name": "progress-component",
+  "homepage": "https://mrskyguy.github.io/ProgressComponent",
   "type": "module",
   "version": "1.0.0",
-  "description": "",
+  "description": "progress component",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc && sass --no-source-map --style=compressed src:public/style",
     "watch-ts": "npx tsc -w",
     "watch-sass": "sass --watch --update --style=expanded src:public/style",
-    "lint": "gts lint",
-    "clean": "gts clean",
-    "compile": "tsc",
-    "fix": "gts fix",
-    "prepare": "npm.cmd run compile",
-    "pretest": "npm.cmd run compile",
-    "posttest": "npm.cmd run lint"
+    "deploy": "gh-pages -d public"
   },
-  "author": "",
+  "author": "mrskyguy",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "20.12.7",
+    "gh-pages": "^6.1.1",
     "gts": "^5.3.1",
     "sass": "^1.77.8",
     "typescript": "^5.4.3"
