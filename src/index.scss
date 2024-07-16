@@ -3,6 +3,16 @@ html, body, .main {
   height: 100%;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -10,4 +20,79 @@ html, body, .main {
 
   align-items: center;
   justify-content: center;
+
+  .main__controllers {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    
+    .controllers__controller {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: nowrap;
+      
+      .controller__text-input {
+        box-sizing: border-box;
+        height: 34px;
+        width: 60px;
+        border-radius: 50px;
+        border: 1px solid #ccc;
+        transition: border 300ms;
+        text-align: center;
+        padding: 4px;
+
+        &:focus {
+          outline: none;
+          border: 1px solid #005CFF;
+        }
+      }
+
+      .controller__switch {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        width: 60px;
+        height: 34px;
+    
+        .switch__input {
+          display: none;
+    
+          &:checked + .switch__slider {
+            background-color: #005CFF;
+    
+            &::before {
+              transform: translateX(26px);
+            }
+          }
+        }
+    
+        .switch__slider {
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          height: 100%;
+    
+          border-radius: 34px;
+          background-color: #ccc;
+          transition: background 300ms;
+    
+          &::before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 4px;
+    
+            border-radius: 50%;
+            height: 26px;
+            width: 26px;
+            background-color: #fff;
+            transition: transform 300ms;
+          }
+        }
+      }
+    }
+  }
+
 }
