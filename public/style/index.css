@@ -1,10 +1,17 @@
 * {
   font-family: "Varela Round", sans-serif;
+  box-sizing: border-box;
 }
 
-html, body, .main {
+html, body {
   width: 100%;
   height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
 }
 
 input::-webkit-outer-spin-button,
@@ -17,7 +24,13 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+.title {
+  font-size: 2em;
+  margin: 0;
+}
+
 .main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 64px;
@@ -27,16 +40,15 @@ input[type=number] {
 .main .main__controllers {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 .main .main__controllers .controllers__controller {
   display: flex;
-  gap: 8px;
+  gap: 24px;
   align-items: center;
   flex-wrap: nowrap;
 }
 .main .main__controllers .controllers__controller .controller__text-input {
-  box-sizing: border-box;
   height: 34px;
   width: 60px;
   border-radius: 50px;
@@ -44,6 +56,7 @@ input[type=number] {
   transition: border 300ms;
   text-align: center;
   padding: 4px;
+  font-size: 1.2em;
 }
 .main .main__controllers .controllers__controller .controller__text-input:focus {
   outline: none;
@@ -84,6 +97,9 @@ input[type=number] {
   width: 26px;
   background-color: #fff;
   transition: transform 300ms;
+}
+.main .main__controllers .controllers__controller .controller__text {
+  font-size: 1.5em;
 }
 
 /*# sourceMappingURL=index.css.map */
