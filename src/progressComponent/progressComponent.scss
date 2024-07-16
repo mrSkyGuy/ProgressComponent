@@ -24,6 +24,7 @@
   }
 
   &.hidden {
+    animation-play-state: paused;
     visibility: hidden;
     opacity: 0;
   }

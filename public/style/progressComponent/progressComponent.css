@@ -19,6 +19,7 @@
   animation: rotation 1s linear 0s infinite both;
 }
 .spinner.hidden {
+  animation-play-state: paused;
   visibility: hidden;
   opacity: 0;
 }
