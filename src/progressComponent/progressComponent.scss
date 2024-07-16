@@ -5,6 +5,8 @@
   height: 2em;
   display: inline-block;
 
+  transition: visibility 300ms, opacity 300ms, transform 300ms;
+
   circle {
     fill-opacity: 0;
 
@@ -15,5 +17,24 @@
       transition: stroke-dasharray 300ms ease;
       stroke: #005CFF;
     }
+  }
+
+  &.animated {
+    animation: rotation 1s linear 0s infinite both;
+  }
+
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

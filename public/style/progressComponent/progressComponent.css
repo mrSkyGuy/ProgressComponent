@@ -3,6 +3,7 @@
   width: 2em;
   height: 2em;
   display: inline-block;
+  transition: visibility 300ms, opacity 300ms, transform 300ms;
 }
 .spinner circle {
   fill-opacity: 0;
@@ -13,6 +14,22 @@
 .spinner circle[data-idea=progress] {
   transition: stroke-dasharray 300ms ease;
   stroke: #005CFF;
+}
+.spinner.animated {
+  animation: rotation 1s linear 0s infinite both;
+}
+.spinner.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /*# sourceMappingURL=progressComponent.css.map */

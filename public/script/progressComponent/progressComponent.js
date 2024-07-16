@@ -24,6 +24,7 @@ const getProgressComponent = wrapperClassName => {
   `;
     const circleProgress = progressComponent.querySelector("circle[data-idea='progress']");
     circleProgress.style.strokeDashoffset = `${perimeter / 4}`;
+    circleProgress.style.strokeDasharray = `0 ${perimeter}`;
     progressComponent.querySelectorAll("circle").forEach(circle => {
         circle.style.strokeWidth = `${borderWidth}px`;
     });
@@ -31,7 +32,19 @@ const getProgressComponent = wrapperClassName => {
         const safePtg = Math.max(Math.min(percentage, 100), 0);
         circleProgress.style.strokeDasharray = `${(perimeter * safePtg) / 100} ${(perimeter * (100 - safePtg)) / 100}`;
     }
-    return { progressComponent, setPercentage };
+    function setAnimate(value) {
+        if (value)
+            progressComponent.classList.add("animated");
+        else
+            progressComponent.classList.remove("animated");
+    }
+    function setHide(value) {
+        if (value)
+            progressComponent.classList.add("hidden");
+        else
+            progressComponent.classList.remove("hidden");
+    }
+    return { progressComponent, setPercentage, setAnimate, setHide };
 };
 export default getProgressComponent;
 //# sourceMappingURL=progressComponent.js.map

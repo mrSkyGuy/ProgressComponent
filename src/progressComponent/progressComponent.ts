@@ -1,6 +1,8 @@
 type TProgressComponent = (wrapperClassName?: string) => {
   progressComponent: HTMLSpanElement;
   setPercentage: (percentage: number) => void;
+  setAnimate: (value: boolean) => void;
+  setHide: (value: boolean) => void;
 };
 
 const getProgressComponent: TProgressComponent = wrapperClassName => {
@@ -35,6 +37,7 @@ const getProgressComponent: TProgressComponent = wrapperClassName => {
     "circle[data-idea='progress']"
   )!;
   circleProgress.style.strokeDashoffset = `${perimeter / 4}`;
+  circleProgress.style.strokeDasharray = `0 ${perimeter}`;
 
   progressComponent.querySelectorAll("circle").forEach(circle => {
     circle.style.strokeWidth = `${borderWidth}px`;
@@ -45,7 +48,17 @@ const getProgressComponent: TProgressComponent = wrapperClassName => {
     circleProgress.style.strokeDasharray = `${(perimeter * safePtg) / 100} ${(perimeter * (100 - safePtg)) / 100}`;
   }
 
-  return {progressComponent, setPercentage};
+  function setAnimate(value: boolean): void {
+    if (value) progressComponent.classList.add("animated");
+    else progressComponent.classList.remove("animated");
+  }
+
+  function setHide(value: boolean): void {
+    if (value) progressComponent.classList.add("hidden");
+    else progressComponent.classList.remove("hidden");
+  }
+
+  return {progressComponent, setPercentage, setAnimate, setHide};
 };
 
 export default getProgressComponent;
