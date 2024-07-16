@@ -1,0 +1,11 @@
+{
+  "extends": "./node_modules/gts/tsconfig-google.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "public/script",
+    "lib": ["DOM", "DOM.Iterable"]
+  },
+  "include": [
+    "src/**/*.ts"
+  ]
+}
