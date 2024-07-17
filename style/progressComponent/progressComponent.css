@@ -3,7 +3,7 @@
   width: 2em;
   height: 2em;
   display: inline-block;
-  transition: visibility 300ms, opacity 300ms, transform 300ms;
+  transition: visibility 300ms, opacity 300ms;
 }
 .spinner circle {
   fill-opacity: 0;
@@ -16,7 +16,7 @@
   stroke: #005CFF;
 }
 .spinner.animated {
-  animation: rotation 1s linear 0s infinite both;
+  animation: rotation 1s linear 0s infinite;
 }
 .spinner.hidden {
   animation-play-state: paused;
