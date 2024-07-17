@@ -11,7 +11,8 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  gap: 16px;
+  padding: 16px;
 }
 
 input::-webkit-outer-spin-button,
@@ -25,7 +26,7 @@ input[type=number] {
 }
 
 .title {
-  font-size: 2em;
+  font-size: 1em;
   margin: 0;
 }
 
@@ -33,12 +34,16 @@ input[type=number] {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 128px;
+  gap: 90px;
 
   align-items: center;
   justify-content: center;
 
-  .main__controllers {
+  &__progress {
+    font-size: 4rem;
+  }
+
+  &__controllers {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -48,17 +53,22 @@ input[type=number] {
       gap: 24px;
       align-items: center;
       flex-wrap: nowrap;
+
+      $width: 56px;
+      $height: 34px;
+      $border-radius: calc(min($width, $height) / 2);
+      $padding: 2px;
       
       .controller__text-input {
-        height: 34px;
-        width: 60px;
-        border-radius: 50px;
-        border: 1px solid #ccc;
+        height: $height;
+        width: $width;
+        border-radius: $border-radius;
+        border: 1px solid #EAF0F6;
         transition: border 300ms;
         text-align: center;
         padding: 4px;
 
-        font-size: 1.2em;
+        font-size: 1em;
 
         &:focus {
           outline: none;
@@ -67,11 +77,13 @@ input[type=number] {
       }
 
       .controller__switch {
+        $slider-size: calc(min($height, $width) - $padding * 2);
+
         cursor: pointer;
         display: inline-block;
         position: relative;
-        width: 60px;
-        height: 34px;
+        width: $width;
+        height: $height;
     
         .switch__input {
           display: none;
@@ -80,7 +92,11 @@ input[type=number] {
             background-color: #005CFF;
     
             &::before {
-              transform: translateX(26px);
+              @if $width > $height {
+                transform: translateX(calc($width - $slider-size - $padding * 2));
+              } @else {
+                transform: translateY(calc($height - $slider-size - $padding * 2));
+              }
             }
           }
         }
@@ -91,19 +107,19 @@ input[type=number] {
           width: 100%;
           height: 100%;
     
-          border-radius: 34px;
-          background-color: #ccc;
+          border-radius: $border-radius;
+          background-color: #EAF0F6;
           transition: background 300ms;
     
           &::before {
             content: "";
             position: absolute;
-            left: 4px;
-            top: 4px;
+            left: $padding;
+            top: $padding;
     
             border-radius: 50%;
-            height: 26px;
-            width: 26px;
+            height: $slider-size;
+            width: $slider-size;
             background-color: #fff;
             transition: transform 300ms;
           }
@@ -111,7 +127,7 @@ input[type=number] {
       }
 
       .controller__text {
-        font-size: 1.5em;
+        font-size: 1.2em;
       }
     }
   }
