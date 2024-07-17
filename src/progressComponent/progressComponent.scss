@@ -5,7 +5,7 @@
   height: 2em;
   display: inline-block;
 
-  transition: visibility 300ms, opacity 300ms, transform 300ms;
+  transition: visibility 300ms, opacity 300ms;
 
   circle {
     fill-opacity: 0;
@@ -20,7 +20,7 @@
   }
 
   &.animated {
-    animation: rotation 1s linear 0s infinite both;
+    animation: rotation 1s linear 0s infinite;
   }
 
   &.hidden {
