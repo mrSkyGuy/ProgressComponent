@@ -11,7 +11,8 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  padding: 32px;
+  gap: 16px;
+  padding: 16px;
 }
 
 input::-webkit-outer-spin-button,
@@ -25,7 +26,7 @@ input[type=number] {
 }
 
 .title {
-  font-size: 2em;
+  font-size: 1em;
   margin: 0;
 }
 
@@ -33,73 +34,76 @@ input[type=number] {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 128px;
+  gap: 90px;
   align-items: center;
   justify-content: center;
 }
-.main .main__controllers {
+.main__progress {
+  font-size: 4rem;
+}
+.main__controllers {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.main .main__controllers .controllers__controller {
+.main__controllers .controllers__controller {
   display: flex;
   gap: 24px;
   align-items: center;
   flex-wrap: nowrap;
 }
-.main .main__controllers .controllers__controller .controller__text-input {
+.main__controllers .controllers__controller .controller__text-input {
   height: 34px;
-  width: 60px;
-  border-radius: 50px;
-  border: 1px solid #ccc;
+  width: 56px;
+  border-radius: 17px;
+  border: 1px solid #EAF0F6;
   transition: border 300ms;
   text-align: center;
   padding: 4px;
-  font-size: 1.2em;
+  font-size: 1em;
 }
-.main .main__controllers .controllers__controller .controller__text-input:focus {
+.main__controllers .controllers__controller .controller__text-input:focus {
   outline: none;
   border: 1px solid #005CFF;
 }
-.main .main__controllers .controllers__controller .controller__switch {
+.main__controllers .controllers__controller .controller__switch {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  width: 60px;
+  width: 56px;
   height: 34px;
 }
-.main .main__controllers .controllers__controller .controller__switch .switch__input {
+.main__controllers .controllers__controller .controller__switch .switch__input {
   display: none;
 }
-.main .main__controllers .controllers__controller .controller__switch .switch__input:checked + .switch__slider {
+.main__controllers .controllers__controller .controller__switch .switch__input:checked + .switch__slider {
   background-color: #005CFF;
 }
-.main .main__controllers .controllers__controller .controller__switch .switch__input:checked + .switch__slider::before {
-  transform: translateX(26px);
+.main__controllers .controllers__controller .controller__switch .switch__input:checked + .switch__slider::before {
+  transform: translateX(22px);
 }
-.main .main__controllers .controllers__controller .controller__switch .switch__slider {
+.main__controllers .controllers__controller .controller__switch .switch__slider {
   display: inline-block;
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: 34px;
-  background-color: #ccc;
+  border-radius: 17px;
+  background-color: #EAF0F6;
   transition: background 300ms;
 }
-.main .main__controllers .controllers__controller .controller__switch .switch__slider::before {
+.main__controllers .controllers__controller .controller__switch .switch__slider::before {
   content: "";
   position: absolute;
-  left: 4px;
-  top: 4px;
+  left: 2px;
+  top: 2px;
   border-radius: 50%;
-  height: 26px;
-  width: 26px;
+  height: 30px;
+  width: 30px;
   background-color: #fff;
   transition: transform 300ms;
 }
-.main .main__controllers .controllers__controller .controller__text {
-  font-size: 1.5em;
+.main__controllers .controllers__controller .controller__text {
+  font-size: 1.2em;
 }
 @media screen and (orientation: landscape) {
   .main {
