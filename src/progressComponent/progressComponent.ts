@@ -29,6 +29,7 @@ const getProgressComponent: TProgressComponent = (
   wrapperClassName && progressComponent.classList.add(wrapperClassName);
 
   progressComponent.innerHTML = `
+    <span>&#10003;</span>
     <svg viewBox="0 0 ${viewSize} ${viewSize}">
       <circle 
         r="${radius}"
@@ -59,14 +60,14 @@ const getProgressComponent: TProgressComponent = (
     const safePtg = Math.max(Math.min(percentage, 100), 0);
     circleProgress.style.strokeDasharray = `${(perimeter * safePtg) / 100} ${(perimeter * (100 - safePtg)) / 100}`;
 
-    if (
-      (safePtg === 0 || safePtg === 100) &&
-      progressComponent.classList.contains("animated")
-    ) {
-      progressComponent.style.animationPlayState = "paused";
+    if ((safePtg === 0 || safePtg === 100) && progressComponent.classList.contains("animated")) {
+      progressComponent.classList.add("pause-animation");
     } else {
-      progressComponent.style.animationPlayState = "";
+      progressComponent.classList.remove("pause-animation");
     }
+
+    if (safePtg === 100) progressComponent.classList.add("completed");
+    else progressComponent.classList.remove("completed");
   }
 
   function setAnimate(value: boolean): void {

@@ -1,27 +1,57 @@
 .spinner {
-  font-size: 12px;
-  width: 2em;
-  height: 2em;
+  position: relative;
+  font-size: 1em;
+  width: 1em;
+  height: 1em;
   display: inline-block;
   transition: visibility 300ms, opacity 300ms;
 }
+.spinner span {
+  font-size: 0.75em;
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+  opacity: 0;
+  color: #FFF;
+  user-select: none;
+}
 .spinner circle {
-  fill-opacity: 0;
+  fill: transparent;
 }
 .spinner circle[data-idea=background] {
   stroke: #EAF0F6;
 }
 .spinner circle[data-idea=progress] {
-  transition: stroke-dasharray 300ms ease;
   stroke: #005CFF;
 }
-.spinner.animated {
+.spinner.animated span {
+  transition: visibility 300ms 300ms, opacity 300ms 300ms;
+}
+.spinner.animated > svg {
   animation: rotation 1s linear 0s infinite;
+}
+.spinner.animated circle {
+  transition: stroke-dasharray 300ms, fill 300ms 300ms, stroke 300ms 300ms;
 }
 .spinner.hidden {
   animation-play-state: paused;
   visibility: hidden;
   opacity: 0;
+}
+.spinner.completed span {
+  visibility: visible;
+  opacity: 1;
+}
+.spinner.completed circle {
+  fill: #0F0;
+  fill-opacity: 1;
+  stroke: #0F0;
+}
+.spinner.pause-animation > svg {
+  animation-play-state: paused;
 }
 
 @keyframes rotation {

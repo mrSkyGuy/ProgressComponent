@@ -39,7 +39,7 @@ input[type=number] {
   justify-content: center;
 }
 .main__progress {
-  font-size: 4rem;
+  font-size: 8rem;
 }
 .main__controllers {
   display: flex;

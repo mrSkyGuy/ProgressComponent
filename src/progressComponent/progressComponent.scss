@@ -1,32 +1,84 @@
-.spinner {
-  font-size: 12px;
+$transition-time: 300ms;
+$wait-other-transitions: $transition-time;
 
-  width: 2em;
-  height: 2em;
+.spinner {
+  position: relative;
+  font-size: 1em;
+
+  width: 1em;
+  height: 1em;
   display: inline-block;
 
-  transition: visibility 300ms, opacity 300ms;
+  transition: 
+    visibility $transition-time, 
+    opacity $transition-time
+  ;
+
+  span {
+    font-size: 0.75em;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    opacity: 0;
+    color: #FFF;
+    user-select: none;
+  }
 
   circle {
-    fill-opacity: 0;
+    fill: transparent;
 
     &[data-idea="background"] {
       stroke: #EAF0F6;
     }
     &[data-idea="progress"] {
-      transition: stroke-dasharray 300ms ease;
       stroke: #005CFF;
     }
   }
 
   &.animated {
-    animation: rotation 1s linear 0s infinite;
+    span {
+      transition: 
+        visibility $transition-time $wait-other-transitions, 
+        opacity $transition-time $wait-other-transitions
+      ;
+    }
+
+    > svg {
+      animation: rotation 1s linear 0s infinite;
+    }
+
+    circle {
+      transition: 
+        stroke-dasharray $transition-time, 
+        fill $transition-time $wait-other-transitions, 
+        stroke $transition-time $wait-other-transitions
+      ;
+    }
   }
 
   &.hidden {
     animation-play-state: paused;
     visibility: hidden;
     opacity: 0;
+  }
+
+  &.completed {
+    span {
+      visibility: visible;
+      opacity: 1;
+    }
+    circle {
+      fill: #0F0;
+      fill-opacity: 1;
+      stroke: #0F0;
+    }
+  }
+
+  &.pause-animation > svg {
+    animation-play-state: paused;
   }
 }
 
