@@ -1,0 +1,19 @@
+:root {
+  --body-bg: #FFF;
+  --input-bg: #FFF;
+  --input-border: #EAF0F6;
+  --switch-bg: #EAF0F6;
+  --switch: #FFF;
+  --text-color: #000;
+}
+
+.dark-mode {
+  --body-bg: #222;
+  --input-bg: #444;
+  --switch-bg: #444;
+  --input-border: #888;
+  --switch: #222;
+  --text-color: #FFF;
+}
+
+/*# sourceMappingURL=theme.css.map */

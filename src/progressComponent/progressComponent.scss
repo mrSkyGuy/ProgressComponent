@@ -29,12 +29,10 @@ $wait-other-transitions: $transition-time;
 
   circle {
     fill: transparent;
+    stroke: #005CFF;
 
     &[data-idea="background"] {
-      stroke: #EAF0F6;
-    }
-    &[data-idea="progress"] {
-      stroke: #005CFF;
+      opacity: 0.1;
     }
   }
 

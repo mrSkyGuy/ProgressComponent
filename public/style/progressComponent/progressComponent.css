@@ -20,12 +20,10 @@
 }
 .spinner circle {
   fill: transparent;
+  stroke: #005CFF;
 }
 .spinner circle[data-idea=background] {
-  stroke: #EAF0F6;
-}
-.spinner circle[data-idea=progress] {
-  stroke: #005CFF;
+  opacity: 0.1;
 }
 .spinner.animated span {
   transition: visibility 300ms 300ms, opacity 300ms 300ms;
