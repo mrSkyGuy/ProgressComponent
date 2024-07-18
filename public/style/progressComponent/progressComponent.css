@@ -45,7 +45,6 @@
 }
 .spinner.completed circle {
   fill: #0F0;
-  fill-opacity: 1;
   stroke: #0F0;
 }
 .spinner.pause-animation > svg {
